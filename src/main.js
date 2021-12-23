@@ -4,9 +4,8 @@ import router from "./router";
 import store from "./store";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-// import '@/assets/js/variable.js'
-// import '@/css/base.css'
-// import '@/css/variable.css'
+import { initTheme } from "./theme";
+initTheme(true)
 import axios from "axios";
 require("./mock/index");
 Vue.use(ElementUI);

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { lightTheme, darkTheme } from "@/assets/js/variable";
+import { initTheme } from "../theme";
 export default {
   data() {
     return {
@@ -18,12 +18,7 @@ export default {
   methods: {
     editColor(){
       this.theme = !this.theme;
-      // 调用 `less.modifyVars` 方法来改变变量值，但是在ie下使用不了
-      console.log(window);
-      console.log(window.less);
-      window.less.modifyVars(this.theme ? lightTheme : darkTheme);
-      console.log(lightTheme);
-      console.log(darkTheme);
+      initTheme(this.theme)
     }
   },
   created() {},
@@ -36,12 +31,13 @@ export default {
   .father {
     width: 200px;
     height: 200px;
-    background-color: @text;
+    background-color: var(--text);
+    // background-color: #3c3c3c;
     display: flex;
     align-items: center;
     justify-content: center;
     .son {
-      color: @text-1;
+      color: var(--text-1);
       width: 50px;
       height: 50px;
       // background-color: #fff;
